@@ -1,3 +1,33 @@
+<?php
+session_start();
+require_once '../controladores/controladorValidacion.php';
+$erroresEnLogin = [];
+if($_POST) {
+  $erroresEnLogin = validarRegistro();
+
+  if(count($erroresEnLogin)==0){
+    //logueo usuario
+    $usuariosRegistrados = file_get_contents("usuarios.json");
+    $usuariosRegistrados = explode(PHP_EOL, $usuariosRegistrados);
+    array_pop($usuariosRegistrados);
+    foreach ($usuariosRegistrados as $usuario) {
+      $arrayUsuario = json_decode($usuario, true);
+      if($_POST["email"] == $arrayUsuario["email"]) {
+        if(password_verify($_POST["pass"], $arrayUsuario["password"])) {
+          $_SESSION["email"] = $arrayUsuario["email"];
+          if(isset($_POST["remember"]) && $_POST["remember"]=="on") {
+            setcookie("usuarioEmail",$arrayUsuario["email"],time() + 60*60*24*7);
+            setcookie("usuarioPassword",$arrayUsuario["pass"],time() + 60*60*24*7);
+          }
+          header("Location: home.php");
+        }
+      }
+    }
+  }
+}
+ ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,21 +50,43 @@
         <h3 class="pb-5 display-4">INICIAR SESIÓN CON TU CUENTA</h3>
             <div class="row">
               <div class="col-12">
-              <form action="/action_page.php">
+              <form method="POST" action="">
                 <div class="form-group row">
                   <label for="inputemail" class="col-sm-2 col-form-label">E-mail</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control  " placeholder="correo electronico"   id="inputemail" required>
+                    <input type="email" class="form-control  " placeholder="Correo Electronico" name="email"  id="email"  value="<?= persistirDato("email",$erroresEnLogin) ?>">
+                    <?php
+                      if(isset($erroresEnLogin["email"])) {
+                        foreach($erroresEnLogin["email"] as $error) {
+                          echo '<small class="text-danger">' . $error . '</small><br>';
+                        }
+                      }else{
+                        echo "";
+                      }
+                    ?>
                   </div>
                   </div>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña" value="">
+                    <?php
+                      if(isset($erroresEnLogin["pass"])) {
+                        foreach($erroresEnLogin["pass"] as $error) {
+                          echo '<small class="text-danger">' . $error . '</small><br>';
+                        }
+                      }else{
+                        echo "";
+                      }
+                    ?>
+                  </div>
+                  <div class="form-group text-center col-sm-6">
+                      <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                      <label for="remember"> Recordarme </label>
                   </div>
                 </div>
                 <div class="col-12  text-center pt-5 ">
-                  <button type="button" class="btn btn-primary text-white ">Iniciar sesion</button>
+                  <button type="submit" class="btn btn-primary text-white ">Iniciar sesion</button>
                 </div>
               </form>
             </div>
