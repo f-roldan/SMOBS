@@ -40,15 +40,15 @@
                 <!-- Menú de opciones -->
                 <div class="collapse navbar-collapse opciones" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="btn btn-outline-light" href="home.html">Home</a>
-                        <a class="btn btn-outline-light" href="calzado.html">Novedades</a>
-                        <a class="btn btn-outline-light" href="contacto.html">Contactos</a>
-                        <a class="btn btn-outline-light" href="faq.html">F.A.Q - Preguntas Frecuentes</a>
+                        <a class="btn btn-outline-light" href="home.php">Home</a>
+                        <a class="btn btn-outline-light" href="calzado.php">Novedades</a>
+                        <a class="btn btn-outline-light" href="contacto.php">Contactos</a>
+                        <a class="btn btn-outline-light" href="faq.php">F.A.Q - Preguntas Frecuentes</a>
                     </div>
                 </div>
                 <!-- Nombre de la marca -->
                 <div class="contenedorNombre text-center">
-                    <a id="nombre" class="navbar-brand" href="home.html">Zapas</a>
+                    <a id="nombre" class="navbar-brand" href="home.php">Zapas</a>
                 </div>
                 <div class="">
                     <!-- Boton de expanción -->
@@ -84,7 +84,7 @@
                     <div class="col-6 col-sm-4">
                         <div class="row">
                             <div class="publicacion col-12">
-                              <a href="producto.html"><img class="imgPublicacion" src="../design/publicaciones/zapa_1.jpeg" alt="imagen"></a>
+                              <a href="producto.php"><img class="imgPublicacion" src="../design/publicaciones/zapa_1.jpeg" alt="imagen"></a>
                             </div>
                         </div>
                         <div class="row">

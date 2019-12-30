@@ -6,6 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/fontello.css">
+    <!--Fuentes-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,500&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
     <!--Fuentes-->
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -16,55 +21,11 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <header class="col-12 p-0">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <!-- Login y carrito de compras -->
-                <div class="login text-center">
-                    <li id="botonLogin" class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <img width="25" height="25" src="../design/icono/usuario.png" alt="">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Ingresá</a>
-                            <a class="dropdown-item" href="registro.html">Registrate</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="perfil.html">Tu Perfil</a>
-
-                        </div>
-                    </li>
-                    <a href=""><img class="" width="25" height="25" src="../design/icono/carro-de-la-compra.png"
-                            alt=""></a>
-                </div>
-                <!-- Menú de opciones -->
-                <div class="collapse navbar-collapse opciones" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="btn btn-outline-light" href="home.html">Home</a>
-                        <a class="btn btn-outline-light" href="calzado.html">Novedades</a>
-                        <a class="btn btn-outline-light" href="contacto.html">Contactos</a>
-                        <a class="btn btn-outline-light" href="faq.html">F.A.Q - Preguntas Frecuentes</a>
-                    </div>
-                </div>
-                <!-- Nombre de la marca e ícono -->
-                <div class="contenedorNombre text-center">
-                    <a id="nombre" class="navbar-brand" href="home.html">Zapas</a>
-                </div>
-                <div class="">
-                    <!-- Boton de expanción -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            </nav>
-        </header>
-        <!-- Fin Header(Barra de navegación)-->
-
-        <!-- Comienzo section FAQ-->
-      <section class="faq">
-        <div class="titulo-faq"><h4 class="col-12">PREGUNTAS FRECUENTES</h4></div>
+  <div class="container-fluid">
+      <div class="row">
+          <?php require_once("header.php"); ?>
+          <main class="col">
+            <section>
         <div class="accordion col-12" id="accordionExample">
           <div class="card">
             <div class="card-header" id="headingOne">
@@ -186,8 +147,12 @@
             </div>
           </div>
         </div>
+          </main>
+</section>
 
-      </section>
+
+
+
 
         <!-- Comienzo Footer -->
         <footer class="container-fluid d-flex justify-content-center">

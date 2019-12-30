@@ -40,15 +40,15 @@
                 <!-- Menú de opciones -->
                 <div class="collapse navbar-collapse opciones" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="btn btn-outline-light" href="home.html">Home</a>
-                        <a class="btn btn-outline-light" href="calzado.html">Novedades</a>
-                        <a class="btn btn-outline-light" href="contacto.html">Contactos</a>
-                        <a class="btn btn-outline-light" href="faq.html">F.A.Q - Preguntas Frecuentes</a>
+                        <a class="btn btn-outline-light" href="home.php">Home</a>
+                        <a class="btn btn-outline-light" href="calzado.php">Novedades</a>
+                        <a class="btn btn-outline-light" href="contacto.php">Contactos</a>
+                        <a class="btn btn-outline-light" href="faq.php">F.A.Q - Preguntas Frecuentes</a>
                     </div>
                 </div>
                 <!-- Nombre de la marca e ícono -->
                 <div class="contenedorNombre text-center">
-                    <a id="nombre" class="navbar-brand" href="home.html">Zapas</a>
+                    <a id="nombre" class="navbar-brand" href="home.php">Zapas</a>
                 </div>
                 <div class="">
                     <!-- Boton de expanción -->
