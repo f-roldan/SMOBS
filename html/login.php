@@ -20,6 +20,8 @@ if($_POST) {
             setcookie("usuarioPassword",$arrayUsuario["pass"],time() + 60*60*24*7);
           }
           header("Location: home.php");
+        }else{
+          echo '<small class="text-danger">' . "Contraseña Incorrecta" . '</small><br>';
         }
       }
     }

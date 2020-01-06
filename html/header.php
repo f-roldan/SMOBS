@@ -35,12 +35,6 @@
         <a href="contacto.php"><i class="icon-mail-alt"></i><span>Contacto</span></a>
         <a href="carritoCompra.html"><i class="icon-basket"></i><span>Carrito</span></a>
         <a href="faq.php"><i class="icon-chat-empty"></i><span>F.A.Q</span></a>
-        <a href="#"><i class="icon-logout"></i><span>Salir</span></a>
+        <a href="logout.php"><i class="icon-logout"></i><span>Salir</span></a>
     </nav>
 </div>
-
-
-
-
-    
-
