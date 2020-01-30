@@ -662,3 +662,14 @@ footer{
       margin-right: 2%;
    }
 }
+
+/*===================
+   BASE DE DATOS 
+=====================*/
+#contenedorDB{
+background-color: #e8e8e8;
+}
+.tituloDB{
+   background-color: #262a34;
+   color: white;
+}
