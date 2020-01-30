@@ -1,19 +1,14 @@
 <?php
 
 require_once '../controladores/controladorValidacion.php';
-require_once 'dataBase.php';
 
 $errores = [];
-$message = '';
 
 if($_POST) {
     $errores = validarRegistro();
 
 
     if(count($errores) == 0){
-        /*
-        Maneja de JSON
-
         $usuario = [
             "nombre" => trim($_POST['nombre']),
             "email" =>trim( $_POST['email']),
@@ -23,19 +18,7 @@ if($_POST) {
         file_put_contents("usuarios.json", $elJson . PHP_EOL, FILE_APPEND);
         header("Location: login.php");
         exit;
-
-        */
-        $query = $db->prepare("INSERT INTO usuarios values (default, :nombre_completo, :email, :pass, '2')");
-        $query->bindValue(':nombre_completo', $_POST['nombre']);
-        $query->bindValue(':email', $_POST['email']);
-        $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-        $query->bindValue(':pass', $pass);
-        if ($query->execute()) {
-        $message = 'La cuenta se ha creado con éxito';
-        } else {
-        $message = 'No se ha podido crear la cuenta';
-        }
-        }
+    }
 }
 
 if($_FILES){
@@ -85,15 +68,12 @@ if($_FILES){
                             <div class="row justify-content-center">
                                 <div class="pb-10">
                                     <h1 class="text-white">Completá tus datos</h1>
-                                    <?php if (!empty($message)): ?>
-                                    <p class="text-white"><?= $message ?></p>
-                                    <?php endif; ?>
                                 </div>
                             </div>
-                            <form method="post" action="registro.php" enctype="multipart/form-data">
+                            <form method="post" action="" enctype="multipart/form-data">
                                 <div class="form-group row justify-content-center">
                                     <div class="col-12 col-md-6 pb-3">
-                                        <input type="text" class="form-control text-dark" placeholder="Nombre" name="nombre" id="nombre" value="<?= persistirDato("nombre", $errores) ?>">
+                                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" value="<?= persistirDato("nombre", $errores) ?>">
                                         <?php 
                                             if(isset($errores['nombre'])) {
                                                 foreach($errores['nombre'] as $error) {

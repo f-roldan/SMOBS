@@ -27,10 +27,10 @@
                             <img width="25" height="25" src="../design/icono/usuario.png" alt="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="login.php">Ingresá</a>
-                            <a class="dropdown-item" href="registro.php">Registrate</a>
+                            <a class="dropdown-item" href="login.html">Ingresá</a>
+                            <a class="dropdown-item" href="registro.html">Registrate</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="perfil.php">Tu Perfil</a>
+                            <a class="dropdown-item" href="perfil.html">Tu Perfil</a>
 
                         </div>
                     </li>
@@ -40,10 +40,10 @@
                 <!-- Menú de opciones -->
                 <div class="collapse navbar-collapse opciones" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="btn btn-outline-light" href="home.php">Home</a>
-                        <a class="btn btn-outline-light" href="calzado.php">Novedades</a>
-                        <a class="btn btn-outline-light" href="contacto.php">Contactos</a>
-                        <a class="btn btn-outline-light" href="faq.php">F.A.Q - Preguntas Frecuentes</a>
+                        <a class="btn btn-outline-light" href="home.html">Home</a>
+                        <a class="btn btn-outline-light" href="calzado.html">Novedades</a>
+                        <a class="btn btn-outline-light" href="contacto.html">Contactos</a>
+                        <a class="btn btn-outline-light" href="faq.html">F.A.Q - Preguntas Frecuentes</a>
                     </div>
                 </div>
                 <!-- Nombre de la marca e ícono -->

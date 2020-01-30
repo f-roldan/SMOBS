@@ -1,42 +1,8 @@
-<?php
-session_start();
-require_once '../controladores/controladorValidacion.php';
-require_once 'dataBase.php';
-$erroresEnLogin = [];
-$erroresEnLogin = validarRegistro();
-if(count($erroresEnLogin)==0){
-if(!empty($_POST['email']) && !empty($_POST['pass'])) {
-
-    //logueo usuario
-    $query = $db->prepare("SELECT id_user,email, pass FROM usuarios WHERE email=:email");
-    $query->bindParam(':email',$_POST['email']);
-    $query->execute();
-
-    $resultado = $query->fetch(PDO::FETCH_ASSOC);
-    $message = '';
-
-    if(count($resultado)>0 && password_verify($_POST['pass'], $resultado['pass'])){
-      $_SESSION['id_user'] = $resultado['id_user'];
-      header("Location: home.php");
-    } else{
-      $message = 'Datos Incorrectos';
-    }
-  }
-}
- ?>
-
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/fontello.css">
-    <!--Fuentes-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,500&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
@@ -47,55 +13,28 @@ if(!empty($_POST['email']) && !empty($_POST['pass'])) {
   <body>
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php require_once("header.php"); ?>
-    <main class = "col">
+
+    <main>
     <section class="text-center  ">
       <div class="container">
         <h3 class="pb-5 display-4">INICIAR SESIÓN CON TU CUENTA</h3>
             <div class="row">
               <div class="col-12">
-              <form method="POST" action="">
+              <form action="/action_page.php">
                 <div class="form-group row">
                   <label for="inputemail" class="col-sm-2 col-form-label">E-mail</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control  " placeholder="Correo Electronico" name="email"  id="email"  value="<?= persistirDato("email",$erroresEnLogin) ?>">
-                    <?php
-                      if(isset($erroresEnLogin["email"])) {
-                        foreach($erroresEnLogin["email"] as $error) {
-                          echo '<small class="text-danger">' . $error . '</small><br>';
-                        }
-                      }else{
-                        echo "";
-                      }
-                    ?>
+                    <input type="email" class="form-control  " placeholder="correo electronico"   id="inputemail" required>
                   </div>
                   </div>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña" value="">
-                    <?php
-                      if(isset($erroresEnLogin["pass"])) {
-                        foreach($erroresEnLogin["pass"] as $error) {
-                          echo '<small class="text-danger">' . $error . '</small><br>';
-                        }
-                      }else{
-                        echo "";
-                      }
-                    ?>
-                  </div>
-                  <div class="form-group text-center col-sm-6">
-                      <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                      <label for="remember"> Recordarme </label><br>
-                      <?php if(!empty($message)){
-                        echo '<small class="text-danger">' . $message . '</small><br>';
-                      } ?>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
                   </div>
                 </div>
-                <div class="col-12 text-center pt-5">
-                  <button type="submit" class="btn btn-primary text-white ">Iniciar sesion</button>
+                <div class="col-12  text-center pt-5 ">
+                  <button type="button" class="btn btn-primary text-white ">Iniciar sesion</button>
                 </div>
               </form>
             </div>
